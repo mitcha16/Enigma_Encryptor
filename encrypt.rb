@@ -7,10 +7,8 @@ class Encrypt
       map_index = find_match(message[index])
       if map_index == false
         message[index] = message[index]
-      elsif map[(map_index + key[counter]) - 39] == nil
-        message[index] = map[((map_index + key[counter]) - 39) - 39]
       else
-        message[index] = map[(map_index + key[counter]) - 39]
+        message[index] = map[(map_index + key[counter]) % 39 ]
       end
       counter += 1
       if counter >= 3
@@ -28,10 +26,8 @@ class Encrypt
       map_index = find_match(message[index])
       if map_index == false
         message[index] = message[index]
-      elsif map[(map_index - key[counter])] == nil
-        message[index] = map[((map_index - key[counter]) + 39) + 39]
       else
-        message[index] = map[(map_index - key[counter])]
+        message[index] = map[(map_index - key[counter]) % 39]
       end
       counter += 1
       if counter >= 3

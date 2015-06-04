@@ -70,4 +70,7 @@ class Runner
 
 end
 
-Runner.new.run
+
+if __FILE__ == $0
+  Runner.new.run
+end
